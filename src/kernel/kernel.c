@@ -1,5 +1,6 @@
 #include "kernel.h"
 #include "keyboard_map.h"
+#include "multiboot_info.h"
 #include "../common/stdlib.h"
 #include "../screen/screen.h"
 #include "../vga/vga.h"
@@ -156,7 +157,7 @@ void handle_keyboard_interrupt() {
 }
 
 // ----- Entry point -----
-int main() {
+int main(multiboot_info_t *mb_boot_ptr) {
 	print_message();
 	print_prompt();
 	disable_cursor();
